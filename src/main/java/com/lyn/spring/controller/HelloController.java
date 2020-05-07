@@ -11,15 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class HelloController {
 
-    @RequestMapping("/test")
-    public String index(){
-        return "index";
-    }
-
-
     @RequestMapping("/hello")
     public String Hello(){
         System.out.println("hello,world!");
         return "Hello page";
     }
+
 }
