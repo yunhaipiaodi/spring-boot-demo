@@ -1,7 +1,9 @@
 package com.lyn.spring.controller;
 
+import com.lyn.spring.exception.UserNoExistException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -12,9 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     @RequestMapping("/hello")
-    public String Hello(){
+    public String Hello(@RequestParam("user") String user){
+        if("aaa".equals(user)){
+            throw new UserNoExistException();
+        }
         System.out.println("hello,world!");
-        return "Hello page";
+        return "dashboard";
     }
 
 }
